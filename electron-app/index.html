@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self'" />
+    <meta http-equiv="X-Content-Security-Policy"
+          content="default-src 'self'; script-src 'self'" />
+    <title>Hello from Electron renderer!</title>
+</head>
+
+<body>
+    <h1>Hello from Electron renderer!</h1>
+    <p>👋</p>
+    <p id="info"></p>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    __dirname
+                </td>
+                <td>
+                    <span id="dir-name"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    process.resourcesPath
+                </td>
+                <td>
+                    <span id="resources-path"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    EDGE_NATIVE
+                </td>
+                <td>
+                    <span id="edge-native"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Greeting
+                </td>
+                <td>
+                    <span id="greeting"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <span id="greeting"></span>
+    </div>
+</body>
+<script src="./renderer.js"></script>
+
+</html>

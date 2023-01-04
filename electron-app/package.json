@@ -1,0 +1,27 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build-electron-edge-js": "node_modules\\electron-edge-js\\tools\\build.bat release 22.0.0",
+    "build-portable": "electron-builder build --windows portable"
+  },
+  "author": "nakamurakko",
+  "license": "MIT",
+  "build": {
+    "asar": "false",
+    "extraResources": [
+      "Libraries/*.*"
+    ]
+  },
+  "dependencies": {
+    "electron-edge-js": "^22.0.0"
+  },
+  "devDependencies": {
+    "electron": "^22.0.0",
+    "electron-builder": "^23.6.0"
+  }
+}
