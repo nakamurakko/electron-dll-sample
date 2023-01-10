@@ -14,8 +14,11 @@
 
   <ItemGroup>
     <PackageReference Include="Edge.js.CSharp" Version="1.2.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.4.0" />
+    <PackageReference Include="Microsoft.DotNet.InternalAbstractions" Version="1.0.0" />
     <PackageReference Include="Microsoft.NETCore.DotNetHost" Version="7.0.1" />
     <PackageReference Include="Microsoft.NETCore.DotNetHostPolicy" Version="7.0.1" />
+    <PackageReference Include="System.Xml.XPath.XmlDocument" Version="4.3.0" />
   </ItemGroup>
 
 </Project>
