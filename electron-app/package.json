@@ -14,7 +14,7 @@
   "build": {
     "asar": "false",
     "extraResources": [
-      "Libraries/*.*"
+      "Libraries/SampleLib.dll"
     ]
   },
   "dependencies": {

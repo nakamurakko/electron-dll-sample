@@ -1,0 +1,4 @@
+# "node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1" にコピーしないファイルを列挙する。
+Libraries\SampleLib.deps.json
+Libraries\SampleLib.dll
+Libraries\SampleLib.pdb
