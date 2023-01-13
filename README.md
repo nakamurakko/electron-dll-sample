@@ -8,7 +8,7 @@
         * C++ によるデスクトップ開発
         * .NET デスクトップ ビルド ツール
     * 個別のコンポーネントで下記を選択する。
-        * .NET Framework 4.6 Targeting Pack (**Edge.js.CSharp が参照しているため、 EXE 実行環境でも必要。**)
+        * .NET Framework 4.6 Targeting Pack (**調査中。Edge.js.CSharp が参照しているため、 EXE 実行環境でも必要。**)
 * Visual C++ 再頒布パッケージ
     * 必要か再確認が必要。
 * Node.js 18.12.1
@@ -16,18 +16,19 @@
 
 ## 準備
 
-`publish-dll.bat` を実行する。バッチの内容は下記の通り。
-
-* SampleLib の発行を実行し、 electron-app\Libraries に DLL を出力する。
-* `npm install -g node-gyp` を実行する。
-* electron-app ディレクトリーで `npm install` を実行する。
-* electron-app ディレクトリーで `npm run build-electron-edge-js` を実行する。
-* electron-app\Libraries に生成された下記ファイルを、 electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\runtimes\win\lib\netstandard1.3 ディレクトリーにを作成してコピーする。
-    * System.Diagnostics.FileVersionInfo.dll (electron-app\Libraries\refs ディレクトリーに存在。)
-    * System.Text.Encoding.CodePages.dll
-    * Microsoft.DotNet.InternalAbstractions.dll
-* electron-app\Libraries に生成された下記ファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
-    (SampleLib* はコピーしないため、 CopyExcludedFiles.txt (除外一覧)に記載。)
+* 以下、初回に `install-npm.bat` を実行する。バッチの内容は下記の通り。
+    * `npm install -g node-gyp` を実行する。
+    * electron-app ディレクトリーで `npm install` を実行する。
+    * electron-app ディレクトリーで `npm run build-electron-edge-js` を実行する。
+* 以下、初回や DLL を修正した場合に `publish-dll.bat` を実行する。バッチの内容は下記の通り。
+    * SampleLib の発行を実行し、 electron-app\Libraries に DLL を出力する。
+* 以下、オプションで `copy-dll-to-edge-js-directory.bat` を実行する。バッチの内容は下記の通り。**(調査中。自己完結 DLL の場合は、おそらく必要。)**
+    * electron-app\Libraries に生成された下記ファイルを、 electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\runtimes\win\lib\netstandard1.3 ディレクトリーにを作成してコピーする。
+        * System.Diagnostics.FileVersionInfo.dll (electron-app\Libraries\refs ディレクトリーに存在。)
+        * System.Text.Encoding.CodePages.dll
+        * Microsoft.DotNet.InternalAbstractions.dll
+    * electron-app\Libraries に生成された下記ファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
+        (SampleLib* はコピーしないため、 CopyExcludedFiles.txt (除外一覧)に記載。)
 
 ## 実行
 
