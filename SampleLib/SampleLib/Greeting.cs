@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace SampleLib
 {
@@ -14,10 +15,17 @@ namespace SampleLib
         /// <returns>挨拶</returns>
         public async Task<object> Reply(string value)
         {
-            return await Task.Run(() =>
+            try
             {
-                return $"Hello {value}.";
-            });
+                return await Task.Run(() =>
+                {
+                    return $"Hello {value}.";
+                });
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
     }
 }
