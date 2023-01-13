@@ -23,6 +23,11 @@ edgeNative.innerText = paths.edgeNative();
 /** @type {HTMLElement} */
 const greeting = document.getElementById('greeting');
 sampleLib.greeting()
-  .then(response => {
-    greeting.innerText = response;
-  });
+  .then(
+    response => {
+      greeting.innerText = response;
+    },
+    rejected => {
+      greeting.innerText = rejected;
+    }
+  );

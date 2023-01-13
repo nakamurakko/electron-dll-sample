@@ -22,11 +22,11 @@
     * electron-app ディレクトリーで `npm run build-electron-edge-js` を実行する。
 * 以下、初回や DLL を修正した場合に `publish-dll.bat` を実行する。バッチの内容は下記の通り。
     * SampleLib の発行を実行し、 electron-app\Libraries に DLL を出力する。
-* 以下、オプションで `copy-dll-to-edge-js-directory.bat` を実行する。バッチの内容は下記の通り。**(調査中。自己完結 DLL の場合は、おそらく必要。)**
     * electron-app\Libraries に生成された下記ファイルを、 electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\runtimes\win\lib\netstandard1.3 ディレクトリーにを作成してコピーする。
         * System.Diagnostics.FileVersionInfo.dll (electron-app\Libraries\refs ディレクトリーに存在。)
-        * System.Text.Encoding.CodePages.dll
+        * System.Text.Encoding.CodePages.dll (electron-app\Libraries\refs ディレクトリーに存在。)
         * Microsoft.DotNet.InternalAbstractions.dll
+    * electron-app\Libraries\refs に生成された下記ファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
     * electron-app\Libraries に生成された下記ファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
         (SampleLib* はコピーしないため、 CopyExcludedFiles.txt (除外一覧)に記載。)
 
@@ -39,13 +39,22 @@
 
 ## SampleLib(DLL)の構成
 
-* TargetFramework は netstandard2.0 を指定。
+* TargetFramework は .NET Core 3.1 を指定。
 * 追加した NuGet パッケージは下記の通り。
     パッケージ名 | バージョン | 補足
     -------|-------|---
     Edge.js.CSharp | 1.2.0 |
-    Microsoft.CodeAnalysis | 4.4.0 |
+    Microsoft.CodeAnalysis | 2.8.2 |
+    Microsoft.CSharp | 4.5.0 |
     Microsoft.DotNet.InternalAbstractions | 1.0.0 |
-    Microsoft.NETCore.DotNetHost | 7.0.1 | edge-js で追加指定されている。
-    Microsoft.NETCore.DotNetHostPolicy | 7.0.1 | edge-js で追加指定されている。
+    Microsoft.DotNet.PlatformAbstractions | 2.1.0 |
+    Microsoft.Extensions.DependencyModel | 2.1.0 |
+    Microsoft.NETCore.DotNetHost | 7.0.1 | edge-js で指定あり。
+    Microsoft.NETCore.DotNetHostPolicy | 7.0.1 | edge-js で指定あり。
+    System.Collections.NonGeneric | 4.3.0 |
+    System.Collections.Specialized | 4.3.0 |
+    System.Data.Common | 4.3.0 |
+    System.Reflection.TypeExtensions | 4.4.0 |
+    System.Xml.ReaderWriter | 4.3.1 |
+    System.Xml.XmlSerializer | 4.3.0 |
     System.Xml.XPath.XmlDocument | 4.3.0 |
