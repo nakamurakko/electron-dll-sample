@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
+    "start": "set DEBUG_MODE=true && electron .",
     "build-electron-edge-js": "node_modules\\electron-edge-js\\tools\\build.bat release 22.0.0",
     "build-portable": "electron-builder build --windows portable"
   },
