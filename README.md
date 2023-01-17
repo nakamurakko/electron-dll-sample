@@ -1,5 +1,7 @@
 # electron-dll-sample
 
+[Electron](https://www.electronjs.org/) のアプリから [electron-edge-js](https://github.com/agracio/electron-edge-js) を使用して、 C# の DLL を呼び出すサンプル。
+
 ## 確認済み開発環境
 
 1. Visual Studio Code
@@ -26,16 +28,16 @@
     * electron-app ディレクトリーで `npm run build-electron-edge-js` を実行する。
 * 初回や DLL を修正した場合、 `publish-dll.bat` を実行する。バッチの内容は下記の通り。
     * SampleLib.dll の発行を実行し、 electron-app\Libraries に DLL を出力する。
-    * electron-app\Libraries に生成された下記ファイルを、 electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\runtimes\win\lib\netstandard1.3 ディレクトリーにを作成してコピーする。
-        * System.Diagnostics.FileVersionInfo.dll (electron-app\Libraries\refs ディレクトリーに存在。)
-        * System.Text.Encoding.CodePages.dll (electron-app\Libraries\refs ディレクトリーに存在。)
-        * Microsoft.DotNet.InternalAbstractions.dll
-    * electron-app\Libraries\refs に生成されたファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
-    * electron-app\Libraries に生成されたファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
-        (SampleLib* はコピーしないため、 CopyExcludedFiles.txt (除外一覧)に記載。)
+        * electron-app\Libraries に生成された下記ファイルを、 electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\runtimes\win\lib\netstandard1.3 ディレクトリーにを作成してコピーする。
+            * System.Diagnostics.FileVersionInfo.dll (electron-app\Libraries\refs ディレクトリーに存在。)
+            * System.Text.Encoding.CodePages.dll (electron-app\Libraries\refs ディレクトリーに存在。)
+            * Microsoft.DotNet.InternalAbstractions.dll
+        * electron-app\Libraries\refs に生成されたファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
+        * electron-app\Libraries に生成されたファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
+            (SampleLib* はコピーしないため、 CopyExcludedFiles.txt (除外一覧)に記載。)
     * EdgeJsCSharpSharedLib.dll の発行を実行し、 electron-app\SharedLibraries に DLL を出力する。
-    * SharedLibraries\System.Reflection.TypeExtensions.dll を、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
-    * SharedLibraries\Edge.js.CSharp.dll を、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
+        * SharedLibraries\System.Reflection.TypeExtensions.dll を、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
+        * SharedLibraries\Edge.js.CSharp.dll を、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
 * EXE を作成する場合、 `build-executable.bat` を実行する。
 
 ## 実行
@@ -76,3 +78,9 @@
     パッケージ名 | バージョン | 補足
     -------|-------|---
     Edge.js.CSharp | 1.2.0 |
+
+## 注意点
+
+* C:\Users\<実行中のユーザー>\.nuget ディレクトリーに存在すると、ビルドした EXE DLL が取り込まれていない状態でも .nuget にある DLL を参照してエラーにならないため、ビルド環境で EXE の実行を確認する場合は、 .nuget ディレクトリーを参照できない状態で確認する。
+    (最終的にはビルド環境以外で確認した方が良い。)
+* System.Reflection.TypeExtensions.dll は Edge.js.CSharp が使用する古いバージョン(4.1.0 以下)で上書きする。そのため、自作 DLL 側が .NET Core 3.1 など新しいバージョンで Reflection を使えない可能性がある。
