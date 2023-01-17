@@ -1,11 +1,15 @@
-@REM DLL を発行する。
-call dotnet publish SampleLib -p:PublishProfile=SampleLib\SampleLib\Properties\PublishProfiles\FolderProfile.pubxml
+set RootDir=%~dp0
 
+@REM DLL を発行する。
+cd %RootDir%"EdgeJsCSharpSharedLib"
+call dotnet publish EdgeJsCSharpSharedLib -p:PublishProfile=EdgeJsCSharpSharedLib\Properties\PublishProfiles\FolderProfile.pubxml
+cd %RootDir%"SampleLib"
+call dotnet publish SampleLib             -p:PublishProfile=SampleLib\Properties\PublishProfiles\FolderProfile.pubxml
 
 @REM electron-edge-js が参照する場所に Runtime をコピーする。
-set EdgeJSDir="node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1"
+cd %RootDir%"electron-app"
 
-cd electron-app
+set EdgeJSDir="node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1"
 
 if not exist %EdgeJSDir%"\runtimes\win\lib\netstandard1.3" mkdir %EdgeJSDir%"\runtimes\win\lib\netstandard1.3"
 
@@ -15,5 +19,8 @@ copy /y Libraries\Microsoft.DotNet.InternalAbstractions.dll   %EdgeJSDir%"\runti
 
 copy /y Libraries\refs\*.* %EdgeJSDir%
 xcopy /y Libraries\*.*     %EdgeJSDir% /EXCLUDE:CopyExcludedFiles.txt
+
+copy /y SharedLibraries\System.Reflection.TypeExtensions.dll %EdgeJSDir%
+copy /y SharedLibraries\Edge.js.CSharp.dll                   %EdgeJSDir%
 
 pause

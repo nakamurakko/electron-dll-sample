@@ -7,12 +7,16 @@
     * ワークロードは下記を選択する。
         * C++ によるデスクトップ開発
         * .NET デスクトップ ビルド ツール
-    * 個別のコンポーネントで下記を選択する。
-        * .NET Framework 4.6 Targeting Pack (**調査中。Edge.js.CSharp が参照しているため、 EXE 実行環境でも必要。**)
-* Visual C++ 再頒布パッケージ
-    * 必要か再確認が必要。
 * Node.js 18.12.1
 * Python 3.11.0
+
+## EXE の実行を確認した環境
+
+* Windows 10 (64ビット)
+* [Visual C++ 再頒布可能パッケージ](https://aka.ms/vs/17/release/vc_redist.x64.exe) (64ビット)
+    * [再頒布可能パッケージの最新のサポートされているダウンロードをMicrosoft Visual C++する](https://learn.microsoft.com/ja-jp/cpp/windows/latest-supported-vc-redist?view=msvc-170) または <https://my.visualstudio.com/> からダウンロードする。
+* .NET Core 3.1 SDK (64ビット)
+    * [.NET Core 3.1 のダウンロード](https://dotnet.microsoft.com/ja-jp/download/dotnet/3.1) からダウンロードする。
 
 ## 準備
 
@@ -21,14 +25,17 @@
     * electron-app ディレクトリーで `npm install` を実行する。
     * electron-app ディレクトリーで `npm run build-electron-edge-js` を実行する。
 * 初回や DLL を修正した場合、 `publish-dll.bat` を実行する。バッチの内容は下記の通り。
-    * SampleLib の発行を実行し、 electron-app\Libraries に DLL を出力する。
+    * EdgeJsCSharpSharedLib.dll の発行を実行し、 electron-app\SharedLibraries に DLL を出力する。
+    * SampleLib.dll の発行を実行し、 electron-app\Libraries に DLL を出力する。
     * electron-app\Libraries に生成された下記ファイルを、 electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\runtimes\win\lib\netstandard1.3 ディレクトリーにを作成してコピーする。
         * System.Diagnostics.FileVersionInfo.dll (electron-app\Libraries\refs ディレクトリーに存在。)
         * System.Text.Encoding.CodePages.dll (electron-app\Libraries\refs ディレクトリーに存在。)
         * Microsoft.DotNet.InternalAbstractions.dll
-    * electron-app\Libraries\refs に生成された下記ファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
-    * electron-app\Libraries に生成された下記ファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
+    * electron-app\Libraries\refs に生成されたファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
+    * electron-app\Libraries に生成されたファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
         (SampleLib* はコピーしないため、 CopyExcludedFiles.txt (除外一覧)に記載。)
+    * SharedLibraries\System.Reflection.TypeExtensions.dll を、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
+    * SharedLibraries\Edge.js.CSharp.dll を、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
 * EXE を作成する場合、 `build-executable.bat` を実行する。
 
 ## 実行
@@ -59,3 +66,13 @@
     System.Xml.ReaderWriter | 4.3.1 |
     System.Xml.XmlSerializer | 4.3.0 |
     System.Xml.XPath.XmlDocument | 4.3.0 |
+
+## EdgeJsCSharpSharedLib(DLL)の構成
+
+* TargetFramework は .NET Standard 1.6 を指定。
+    * edge-js の環境変数 `EDGE_USE_CORECLR` を指定時も、古い System.Reflection.TypeExtensions.dll (4.1.0) を参照していて、それを使用するため。
+
+* 追加した NuGet パッケージは下記の通り。
+    パッケージ名 | バージョン | 補足
+    -------|-------|---
+    Edge.js.CSharp | 1.2.0 |
