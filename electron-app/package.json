@@ -13,6 +13,12 @@
   "license": "MIT",
   "build": {
     "asar": "false",
+    "files": [
+      "!.vscode/*",
+      "!Libraries/*",
+      "!SharedLibraries/*",
+      "!CopyExcludedFiles.txt"
+    ],
     "extraResources": [
       "Libraries/SampleLib.dll"
     ]
