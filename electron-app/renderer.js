@@ -20,14 +20,18 @@ paths.resourcesPath()
 const edgeNative = document.getElementById('edge-native');
 edgeNative.innerText = paths.edgeNative();
 
-/** @type {HTMLElement} */
-const greeting = document.getElementById('greeting');
-sampleLib.greeting()
-  .then(
-    response => {
-      greeting.innerText = response;
-    },
-    rejected => {
-      greeting.innerText = rejected;
-    }
-  );
+/** @type {HTMLInputElement} */
+const greetingButton = document.getElementById('greeting-button');
+greetingButton.addEventListener('click', (e) => {
+  /** @type {HTMLElement} */
+  const greeting = document.getElementById('greeting');
+  sampleLib.greeting()
+    .then(
+      response => {
+        greeting.innerText = response;
+      },
+      rejected => {
+        greeting.innerText = rejected;
+      }
+    );
+});
