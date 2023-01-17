@@ -2,20 +2,20 @@
 
 ## 確認済み開発環境
 
-* Visual Studio Code
-* Visual Studio 2022 または Build Tools for Visual Studio 2022
+1. Visual Studio Code
+1. Visual Studio 2022 または Build Tools for Visual Studio 2022
     * ワークロードは下記を選択する。
         * C++ によるデスクトップ開発
         * .NET デスクトップ ビルド ツール
-* Node.js 18.12.1
-* Python 3.11.0
+1. Node.js 18.12.1
+1. Python 3.11.0
 
 ## EXE の実行を確認した環境
 
-* Windows 10 (64ビット)
-* [Visual C++ 再頒布可能パッケージ](https://aka.ms/vs/17/release/vc_redist.x64.exe) (64ビット)
+1. Windows 10 (64ビット)
+1. [Visual C++ 再頒布可能パッケージ](https://aka.ms/vs/17/release/vc_redist.x64.exe) (64ビット)
     * [再頒布可能パッケージの最新のサポートされているダウンロードをMicrosoft Visual C++する](https://learn.microsoft.com/ja-jp/cpp/windows/latest-supported-vc-redist?view=msvc-170) または <https://my.visualstudio.com/> からダウンロードする。
-* .NET Core 3.1 SDK (64ビット)
+1. .NET Core 3.1 SDK (64ビット)
     * [.NET Core 3.1 のダウンロード](https://dotnet.microsoft.com/ja-jp/download/dotnet/3.1) からダウンロードする。
 
 ## 準備
