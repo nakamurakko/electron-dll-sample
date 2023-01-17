@@ -20,7 +20,7 @@
 1. .NET Core 3.1 SDK (64ビット)
     * [.NET Core 3.1 のダウンロード](https://dotnet.microsoft.com/ja-jp/download/dotnet/3.1) からダウンロードする。
 1. .NET Framework 4.6 Runtime が必要になる可能性あり。
-    * Edge.js.CSharp の動作を見る限り使用している可能性はあるが、 Windows 10、 Windows 11 には .NET Framework 4、 .NET Framework 4.8 がデフォルトでインストールされているため、要否を判断できない。
+    * Edge.js.CSharp の動作を見る限り使用している可能性はあるが、 Windows 10、 Windows 11 には .NET Framework 4、 .NET Framework 4.8 がデフォルトでインストールされているため、要否を判断できない。エラーが発生する環境があれば .NET Framework 4.6 Runtime をチェックする。
 
 ## 注意点
 
