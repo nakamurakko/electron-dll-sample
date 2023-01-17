@@ -14,11 +14,19 @@
 
 ## EXE の実行を確認した環境
 
-1. Windows 10 (64ビット)
+1. Windows 10 (64ビット)、 Windows 11 (64ビット) で確認。
 1. [Visual C++ 再頒布可能パッケージ](https://aka.ms/vs/17/release/vc_redist.x64.exe) (64ビット)
     * [再頒布可能パッケージの最新のサポートされているダウンロードをMicrosoft Visual C++する](https://learn.microsoft.com/ja-jp/cpp/windows/latest-supported-vc-redist?view=msvc-170) または <https://my.visualstudio.com/> からダウンロードする。
 1. .NET Core 3.1 SDK (64ビット)
     * [.NET Core 3.1 のダウンロード](https://dotnet.microsoft.com/ja-jp/download/dotnet/3.1) からダウンロードする。
+1. .NET Framework 4.6 Runtime が必要になる可能性あり。
+    * Edge.js.CSharp の動作を見る限り使用している可能性はあるが、 Windows 10、 Windows 11 には .NET Framework 4、 .NET Framework 4.8 がデフォルトでインストールされているため、要否を判断できない。
+
+## 注意点
+
+* System.Reflection.TypeExtensions.dll は Edge.js.CSharp が使用する古いバージョン(4.1.0 以下)で上書きする。そのため、**自作 DLL 側が .NET Core 3.1 など新しいバージョンの際に Reflection を使えない可能性がある。**
+* C:\Users\<実行中のユーザー>\.nuget ディレクトリーに存在すると、ビルドした EXE DLL が取り込まれていない状態でも .nuget にある DLL を参照してエラーにならないため、ビルド環境で EXE の実行を確認する場合は、 .nuget ディレクトリーを参照できない状態で確認する。
+    (最終的にはビルド環境以外で確認した方が良い。)
 
 ## 準備
 
@@ -78,9 +86,3 @@
     パッケージ名 | バージョン | 補足
     -------|-------|---
     Edge.js.CSharp | 1.2.0 |
-
-## 注意点
-
-* C:\Users\<実行中のユーザー>\.nuget ディレクトリーに存在すると、ビルドした EXE DLL が取り込まれていない状態でも .nuget にある DLL を参照してエラーにならないため、ビルド環境で EXE の実行を確認する場合は、 .nuget ディレクトリーを参照できない状態で確認する。
-    (最終的にはビルド環境以外で確認した方が良い。)
-* System.Reflection.TypeExtensions.dll は Edge.js.CSharp が使用する古いバージョン(4.1.0 以下)で上書きする。そのため、自作 DLL 側が .NET Core 3.1 など新しいバージョンで Reflection を使えない可能性がある。
