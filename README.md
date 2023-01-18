@@ -25,7 +25,7 @@
 ## 注意点
 
 * System.Reflection.TypeExtensions.dll は Edge.js.CSharp が使用する古いバージョン(4.1.0 以下)で上書きする。そのため、**自作 DLL 側が .NET Core 3.1 など新しいバージョンの際に Reflection を使えない可能性がある。**
-* electron-edge-js が使用する、古いバージョンを指定する必要がある NuGet パッケージは下記の通り。最新バージョンを使用できない可能性がある。
+* electron-edge-js が使用する、古いバージョンを指定する必要がある NuGet パッケージは下記の通り。**最新バージョンを使用できない可能性がある。**
     * Microsoft.CodeAnalysis
     * Microsoft.DotNet.InternalAbstractions (非推奨、更新)
     * Microsoft.DotNet.PlatformAbstractions
