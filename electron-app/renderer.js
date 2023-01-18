@@ -22,7 +22,7 @@ edgeNative.innerText = paths.edgeNative();
 
 /** @type {HTMLInputElement} */
 const greetingButton = document.getElementById('greeting-button');
-greetingButton.addEventListener('click', (e) => {
+greetingButton.addEventListener('click', (ev) => {
 
   /** @type {HTMLInputElement} */
   const greetingTo = document.getElementById('greeting-to');
