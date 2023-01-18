@@ -61,7 +61,6 @@
 * 追加した NuGet パッケージは下記の通り。
     パッケージ名 | バージョン | 補足
     -------|-------|---
-    Edge.js.CSharp | 1.2.0 |
     Microsoft.CodeAnalysis | 2.8.2 |
     Microsoft.CSharp | 4.5.0 |
     Microsoft.DotNet.InternalAbstractions | 1.0.0 |
