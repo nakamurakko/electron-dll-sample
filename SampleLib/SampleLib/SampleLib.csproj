@@ -18,8 +18,8 @@
     <PackageReference Include="Microsoft.DotNet.InternalAbstractions" Version="1.0.0" />
     <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="2.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
-    <PackageReference Include="Microsoft.NETCore.DotNetHost" Version="7.0.1" />
-    <PackageReference Include="Microsoft.NETCore.DotNetHostPolicy" Version="7.0.1" />
+    <PackageReference Include="Microsoft.NETCore.DotNetHost" Version="7.0.2" />
+    <PackageReference Include="Microsoft.NETCore.DotNetHostPolicy" Version="7.0.2" />
     <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
     <PackageReference Include="System.Collections.Specialized" Version="4.3.0" />
     <PackageReference Include="System.Data.Common" Version="4.3.0" />

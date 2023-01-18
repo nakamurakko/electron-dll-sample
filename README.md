@@ -72,8 +72,8 @@
     Microsoft.DotNet.InternalAbstractions | 1.0.0 | 非推奨
     Microsoft.DotNet.PlatformAbstractions | 2.1.0 | 古いバージョンを指定する必要がある。
     Microsoft.Extensions.DependencyModel | 2.1.0 | 古いバージョンを指定する必要がある。
-    Microsoft.NETCore.DotNetHost | 7.0.1 | edge-js で指定あり。
-    Microsoft.NETCore.DotNetHostPolicy | 7.0.1 | edge-js で指定あり。
+    Microsoft.NETCore.DotNetHost | 7.0.2 | edge-js で指定あり。
+    Microsoft.NETCore.DotNetHostPolicy | 7.0.2 | edge-js で指定あり。
     System.Collections.NonGeneric | 4.3.0 |
     System.Collections.Specialized | 4.3.0 |
     System.Data.Common | 4.3.0 |
