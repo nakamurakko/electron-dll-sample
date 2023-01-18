@@ -71,7 +71,6 @@
     System.Collections.NonGeneric | 4.3.0 |
     System.Collections.Specialized | 4.3.0 |
     System.Data.Common | 4.3.0 |
-    System.Reflection.TypeExtensions | 4.4.0 |
     System.Xml.ReaderWriter | 4.3.1 |
     System.Xml.XmlSerializer | 4.3.0 |
     System.Xml.XPath.XmlDocument | 4.3.0 |
