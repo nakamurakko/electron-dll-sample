@@ -14,5 +14,5 @@ contextBridge.exposeInMainWorld('paths', {
 
 
 contextBridge.exposeInMainWorld('sampleLib', {
-  greeting: () => ipcRenderer.invoke('greeting')
+  greeting: (whoIs) => ipcRenderer.invoke('greeting', whoIs)
 });

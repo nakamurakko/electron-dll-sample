@@ -23,9 +23,13 @@ edgeNative.innerText = paths.edgeNative();
 /** @type {HTMLInputElement} */
 const greetingButton = document.getElementById('greeting-button');
 greetingButton.addEventListener('click', (e) => {
+
+  /** @type {HTMLInputElement} */
+  const greetingTo = document.getElementById('greeting-to');
+
   /** @type {HTMLElement} */
   const greeting = document.getElementById('greeting');
-  sampleLib.greeting()
+  sampleLib.greeting(greetingTo.value)
     .then(
       response => {
         greeting.innerText = response;

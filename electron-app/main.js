@@ -41,8 +41,6 @@ app.whenReady()
       }
     );
 
-    ipcMain.handle('greeting', greeting);
-
     createWindow();
 
     app.on('activate', () => {
@@ -81,28 +79,31 @@ function getLibraryPath() {
   return path.join(libraryPath, 'Libraries');
 }
 
-/**
- * 挨拶を返す。
- *
- * @returns {Promise<string>}
- */
-function greeting() {
-  return new Promise((resolve, reject) => {
-    const dllFilePath = path.join(getLibraryPath(), 'SampleLib.dll');
+ipcMain.handle('greeting',
+  /**
+   * 挨拶を返す。
+   *
+   * @param {Electron.IpcMainInvokeEvent} event イベントデータ。
+   * @param {string} whoIs 挨拶する相手。
+   * @returns {Promise<string>}
+   */
+  (event, whoIs) => {
+    return new Promise((resolve, reject) => {
+      const dllFilePath = path.join(getLibraryPath(), 'SampleLib.dll');
 
-    const dllFunction = edge.func({
-      assemblyFile: dllFilePath,
-      typeName: 'SampleLib.Greeting',
-      methodName: 'Reply'
-    });
+      const dllFunction = edge.func({
+        assemblyFile: dllFilePath,
+        typeName: 'SampleLib.Greeting',
+        methodName: 'Reply'
+      });
 
-    dllFunction('Everybody', function (error, result) {
-      if (error) {
-        reject(error);
-        return;
-      }
+      dllFunction(whoIs, function (error, result) {
+        if (error) {
+          reject(error);
+          return;
+        }
 
-      resolve(result);
+        resolve(result);
+      });
     });
   });
-}
