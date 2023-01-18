@@ -8,7 +8,7 @@ contextBridge.exposeInMainWorld('versions', {
 
 contextBridge.exposeInMainWorld('paths', {
   dirName: () => ipcRenderer.invoke('dirName'),
-  resourcesPath:() => ipcRenderer.invoke('resourcesPath'),
+  resourcesPath: () => ipcRenderer.invoke('resourcesPath'),
   edgeNative: () => process.env.EDGE_NATIVE
 });
 
