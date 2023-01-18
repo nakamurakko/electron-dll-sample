@@ -25,6 +25,12 @@
 ## 注意点
 
 * System.Reflection.TypeExtensions.dll は Edge.js.CSharp が使用する古いバージョン(4.1.0 以下)で上書きする。そのため、**自作 DLL 側が .NET Core 3.1 など新しいバージョンの際に Reflection を使えない可能性がある。**
+* electron-edge-js が使用する、古いバージョンを指定する必要がある NuGet パッケージは下記の通り。最新バージョンを使用できない可能性がある。
+    * Microsoft.CodeAnalysis
+    * Microsoft.DotNet.InternalAbstractions (非推奨、更新)
+    * Microsoft.DotNet.PlatformAbstractions
+    * Microsoft.Extensions.DependencyModel
+
 * C:\Users\<実行中のユーザー>\.nuget ディレクトリーに存在すると、ビルドした EXE DLL が取り込まれていない状態でも .nuget にある DLL を参照してエラーにならないため、ビルド環境で EXE の実行を確認する場合は、 .nuget ディレクトリーを参照できない状態で確認する。
     (最終的にはビルド環境以外で確認した方が良い。)
 
@@ -61,11 +67,11 @@
 * 追加した NuGet パッケージは下記の通り。
     パッケージ名 | バージョン | 補足
     -------|-------|---
-    Microsoft.CodeAnalysis | 2.8.2 |
+    Microsoft.CodeAnalysis | 2.8.2 | 古いバージョンを指定する必要がある。
     Microsoft.CSharp | 4.5.0 |
-    Microsoft.DotNet.InternalAbstractions | 1.0.0 |
-    Microsoft.DotNet.PlatformAbstractions | 2.1.0 |
-    Microsoft.Extensions.DependencyModel | 2.1.0 |
+    Microsoft.DotNet.InternalAbstractions | 1.0.0 | 非推奨
+    Microsoft.DotNet.PlatformAbstractions | 2.1.0 | 古いバージョンを指定する必要がある。
+    Microsoft.Extensions.DependencyModel | 2.1.0 | 古いバージョンを指定する必要がある。
     Microsoft.NETCore.DotNetHost | 7.0.1 | edge-js で指定あり。
     Microsoft.NETCore.DotNetHostPolicy | 7.0.1 | edge-js で指定あり。
     System.Collections.NonGeneric | 4.3.0 |
