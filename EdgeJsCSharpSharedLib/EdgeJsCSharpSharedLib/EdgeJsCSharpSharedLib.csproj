@@ -6,6 +6,8 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <Copyright>@ nakamurakko</Copyright>
+    <Authors>nakamurakko</Authors>
   </PropertyGroup>
 
   <ItemGroup>
