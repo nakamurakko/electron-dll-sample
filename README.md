@@ -64,6 +64,9 @@
 ## SampleLib(DLL)の構成
 
 * TargetFramework は .NET Core 3.1 を指定。
+* プロジェクトファイル(csproj) > PropertyGroup に、下記2つを追記する。(edge-js で指定あり。)
+    * `<PreserveCompilationContext>true</PreserveCompilationContext>`
+    * `<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>`
 * 追加した NuGet パッケージは下記の通り。
     パッケージ名 | バージョン | 補足
     -------|-------|---
@@ -83,7 +86,7 @@
 
 ## EdgeJsCSharpSharedLib(DLL)の構成
 
-* TargetFramework は .NET Standard 1.6 を指定。
+* TargetFramework は .NET Standard 1.6 を指定。([Edge.js.CSharp](https://www.nuget.org/packages/Edge.js.CSharp) の指定バージョンに合わせた。)
     * edge-js の環境変数 `EDGE_USE_CORECLR` を指定した場合も、古い System.Reflection.TypeExtensions.dll (4.1.0 以下) を参照していて、それを使用するため。
     * System.Reflection.TypeExtensions.dll (4.1.0) は、他の DLL とバージョン不整合を起こして SampleLib には追加できないため、 EdgeJsCSharpSharedLib を用意して取り出す。
 * 追加した NuGet パッケージは下記の通り。
