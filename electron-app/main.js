@@ -16,6 +16,9 @@ const createWindow = () => {
   // そしてアプリの index.html を読み込みます。
   mainWindow.loadFile('index.html');
 
+  // メニューバーを非表示。
+  mainWindow.setMenuBarVisibility(false);
+
   // デベロッパー ツールを開きます。
   // mainWindow.webContents.openDevTools()
 };
