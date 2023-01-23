@@ -1,9 +1,11 @@
 set RootDir=%~dp0
 set EdgeJSDir="node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1"
 
+if not exist "electron-app\Libraries" mkdir "electron-app\Libraries"
+
 @REM DLL を発行する。(SampleLib)
 cd %RootDir%"SampleLib"
-call dotnet publish SampleLib             -p:PublishProfile=SampleLib\Properties\PublishProfiles\FolderProfile.pubxml
+call dotnet publish SampleLib -p:PublishProfile=SampleLib\Properties\PublishProfiles\FolderProfile.pubxml
 
 @REM electron-edge-js が参照する場所に Runtime をコピーする。
 cd %RootDir%"electron-app"
