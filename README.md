@@ -41,7 +41,7 @@
     * electron-app ディレクトリーで `npm install` を実行する。
     * electron-app ディレクトリーで `npm run build-electron-edge-js` を実行する。
 * 初回や DLL を修正した場合、 `publish-dll.bat` を実行する。バッチの内容は下記の通り。
-    * SampleLib.dll の発行を実行し、 electron-app\Libraries に DLL を出力する。
+    * SampleLib.dll を発行し、 electron-app\Libraries に DLL を出力する。
         * electron-app\Libraries に生成された下記ファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\runtimes\win\lib\netstandard1.3 ディレクトリーにを作成してコピーする。
             * System.Diagnostics.FileVersionInfo.dll (electron-app\Libraries\refs ディレクトリーに存在。)
             * System.Text.Encoding.CodePages.dll (electron-app\Libraries\refs ディレクトリーに存在。)
@@ -49,7 +49,7 @@
         * electron-app\Libraries\refs に生成されたファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
         * electron-app\Libraries に生成されたファイルを、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
             (SampleLib* はコピーしないため、 CopyExcludedFiles.txt (除外一覧)に記載。)
-    * EdgeJsCSharpSharedLib.dll の発行を実行し、 electron-app\SharedLibraries に DLL を出力する。
+    * EdgeJsCSharpSharedLib.dll を発行し、 electron-app\SharedLibraries に DLL を出力する。
         * SharedLibraries\System.Reflection.TypeExtensions.dll を、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
         * SharedLibraries\Edge.js.CSharp.dll を、 electron-app\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1 ディレクトリーにコピーする。
 * EXE を作成する場合、 `build-executable.bat` を実行する。
