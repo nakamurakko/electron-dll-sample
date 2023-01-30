@@ -17,7 +17,7 @@ document.getElementById('greeting-button')
     /**
      * greeting-button クリック。
      *
-     * @param {MouseEvent} ev
+     * @param {MouseEvent} ev イベントデータ。
      */
     (ev) => {
       /** @type {HTMLInputElement} */
