@@ -13,20 +13,25 @@ paths.resourcesPath()
 document.getElementById('edge-native').innerText = paths.edgeNative();
 
 document.getElementById('greeting-button')
-  .addEventListener('click', (ev) => {
+  .addEventListener('click',
+    /**
+     * greeting-button クリック。
+     *
+     * @param {MouseEvent} ev
+     */
+    (ev) => {
+      /** @type {HTMLInputElement} */
+      const greetingTo = document.getElementById('greeting-to');
 
-    /** @type {HTMLInputElement} */
-    const greetingTo = document.getElementById('greeting-to');
-
-    /** @type {HTMLElement} */
-    const greeting = document.getElementById('greeting');
-    sampleLib.greeting(greetingTo.value)
-      .then(
-        response => {
-          greeting.innerText = response;
-        },
-        rejected => {
-          greeting.innerText = rejected;
-        }
-      );
-  });
+      /** @type {HTMLElement} */
+      const greeting = document.getElementById('greeting');
+      sampleLib.greeting(greetingTo.value)
+        .then(
+          response => {
+            greeting.innerText = response;
+          },
+          rejected => {
+            greeting.innerText = rejected;
+          }
+        );
+    });
