@@ -94,12 +94,14 @@ ipcMain.handle('greeting',
     return new Promise((resolve, reject) => {
       const dllFilePath = path.join(getLibraryPath(), 'SampleLib.dll');
 
+      // DLL のメソッドを参照する。
       const dllFunction = edge.func({
         assemblyFile: dllFilePath,
         typeName: 'SampleLib.Greeting',
         methodName: 'Reply'
       });
 
+      // DLL のメソッドを実行する。
       dllFunction(whoIs, function (error, result) {
         if (error) {
           reject(error);
