@@ -12,7 +12,6 @@ contextBridge.exposeInMainWorld('paths', {
   edgeNative: () => process.env.EDGE_NATIVE
 });
 
-
 contextBridge.exposeInMainWorld('sampleLib', {
   greeting: (whoIs) => ipcRenderer.invoke('greeting', whoIs)
 });
