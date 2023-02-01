@@ -28,22 +28,6 @@ const createWindow = () => {
 // 一部のAPIはこのイベントが発生した後にのみ利用できます。
 app.whenReady()
   .then(() => {
-    ipcMain.handle('dirName',
-      () => {
-        return new Promise((resolve, reject) => {
-          resolve(__dirname);
-        });
-      }
-    );
-
-    ipcMain.handle('resourcesPath',
-      () => {
-        return new Promise((resolve, reject) => {
-          resolve(process.resourcesPath);
-        });
-      }
-    );
-
     createWindow();
 
     app.on('activate', () => {
