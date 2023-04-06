@@ -13,3 +13,7 @@ updates:
     directory: "/SampleLib" # Location of package manifests
     schedule:
       interval: "monthly"
+  - package-ecosystem: "nuget" # See documentation for possible values
+    directory: "/EdgeJsCSharpSharedLib" # Location of package manifests
+    schedule:
+      interval: "monthly"
