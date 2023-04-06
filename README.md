@@ -1,6 +1,7 @@
 # electron-dll-sample
 
 [Electron](https://www.electronjs.org/) のアプリから [electron-edge-js](https://github.com/agracio/electron-edge-js) を使用して、 C# の DLL を呼び出すサンプル。
+[Electron で C# の DLL を実行する](https://www.nakamurakko.com/entry/2023/02/01/120000) の確認当時のソースは <https://github.com/nakamurakko/electron-dll-sample/tree/blog-posted> を参照。
 
 ## 確認済み開発環境
 
@@ -9,7 +10,7 @@
     * ワークロードは下記を選択する。
         * C++ によるデスクトップ開発
         * .NET デスクトップ ビルド ツール
-1. Node.js 18.12.1
+1. Node.js 18.14.2
 1. Python 3.11.0
 
 ## EXE の実行を確認した環境
@@ -17,8 +18,8 @@
 1. Windows 10 (64ビット)、 Windows 11 (64ビット) で確認。
 1. [Visual C++ 再頒布可能パッケージ](https://aka.ms/vs/17/release/vc_redist.x64.exe) (64ビット)
     * [再頒布可能パッケージの最新のサポートされているダウンロードをMicrosoft Visual C++する](https://learn.microsoft.com/ja-jp/cpp/windows/latest-supported-vc-redist?view=msvc-170) または <https://my.visualstudio.com/> からダウンロードする。
-1. .NET 6 SDK (64ビット)
-    * [.NET 6.0 のダウンロード](https://dotnet.microsoft.com/ja-jp/download/dotnet/6.0) からダウンロードする。
+1. .NET 7 SDK (64ビット)
+    * [.NET 7.0 のダウンロード](https://dotnet.microsoft.com/ja-jp/download/dotnet/7.0) からダウンロードする。
 1. .NET Framework 4.6 Runtime が必要になる可能性あり。
     * Edge.js.CSharp の動作を見る限り使用している可能性はあるが、 Windows 10、 Windows 11 には .NET Framework 4、 .NET Framework 4.8 がデフォルトでインストールされているため、要否を判断できない。エラーが発生する環境があれば .NET Framework 4.6 Runtime をチェックする。
 
@@ -63,26 +64,26 @@
 
 ## SampleLib(DLL)の構成
 
-* TargetFramework は .NET 6 を指定。
+* TargetFramework は .NET 7 を指定。
 * プロジェクトファイル(csproj) > PropertyGroup に、下記2つを追記する。(edge-js で指定あり。)
     * `<PreserveCompilationContext>true</PreserveCompilationContext>`
     * `<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>`
 * 追加した NuGet パッケージは下記の通り。
-    パッケージ名 | バージョン | 補足
-    -------|-------|---
-    Microsoft.CodeAnalysis | 2.8.2 | 古いバージョンを指定する必要がある。
-    Microsoft.CSharp | 4.5.0 |
-    Microsoft.DotNet.InternalAbstractions | 1.0.0 | 非推奨
-    Microsoft.DotNet.PlatformAbstractions | 2.1.0 | 古いバージョンを指定する必要がある。
-    Microsoft.Extensions.DependencyModel | 2.1.0 | 古いバージョンを指定する必要がある。
-    Microsoft.NETCore.DotNetHost | 7.0.2 | edge-js で指定あり。
-    Microsoft.NETCore.DotNetHostPolicy | 7.0.2 | edge-js で指定あり。
-    System.Collections.NonGeneric | 4.3.0 |
-    System.Collections.Specialized | 4.3.0 |
-    System.Data.Common | 4.3.0 |
-    System.Xml.ReaderWriter | 4.3.1 |
-    System.Xml.XmlSerializer | 4.3.0 |
-    System.Xml.XPath.XmlDocument | 4.3.0 |
+    パッケージ名 |
+    -------|
+    Microsoft.CodeAnalysis |
+    Microsoft.CSharp |
+    Microsoft.DotNet.InternalAbstractions |
+    Microsoft.DotNet.PlatformAbstractions |
+    Microsoft.Extensions.DependencyModel |
+    Microsoft.NETCore.DotNetHost |
+    Microsoft.NETCore.DotNetHostPolicy |
+    System.Collections.NonGeneric |
+    System.Collections.Specialized |
+    System.Data.Common |
+    System.Xml.ReaderWriter |
+    System.Xml.XmlSerializer |
+    System.Xml.XPath.XmlDocument |
 
 ## EdgeJsCSharpSharedLib(DLL)の構成
 
