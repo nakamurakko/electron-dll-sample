@@ -78,6 +78,7 @@
     Microsoft.Extensions.DependencyModel |
     Microsoft.NETCore.DotNetHost |
     Microsoft.NETCore.DotNetHostPolicy |
+    Newtonsoft.Json |
     System.Collections.NonGeneric |
     System.Collections.Specialized |
     System.Data.Common |
