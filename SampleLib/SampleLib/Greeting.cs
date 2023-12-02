@@ -1,31 +1,30 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace SampleLib
+namespace SampleLib;
+
+/// <summary>
+/// 挨拶クラス。
+/// </summary>
+public sealed class Greeting
 {
     /// <summary>
-    /// 挨拶クラス。
+    /// 挨拶を返す。
     /// </summary>
-    public class Greeting
+    /// <param name="value">挨拶の相手。</param>
+    /// <returns>挨拶</returns>
+    public async Task<object> Reply(string value)
     {
-        /// <summary>
-        /// 挨拶を返す。
-        /// </summary>
-        /// <param name="value">挨拶の相手。</param>
-        /// <returns>挨拶</returns>
-        public async Task<object> Reply(string value)
+        try
         {
-            try
+            return await Task.Run(() =>
             {
-                return await Task.Run(() =>
-                {
-                    return $"Hello {value}.";
-                });
-            }
-            catch (Exception e)
-            {
-                return e.Message;
-            }
+                return $"Hello {value}.";
+            });
+        }
+        catch (Exception e)
+        {
+            return e.Message;
         }
     }
 }
