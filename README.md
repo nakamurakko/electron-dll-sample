@@ -18,8 +18,8 @@
 1. Windows 10 (64ビット)、 Windows 11 (64ビット) で確認。
 1. [Visual C++ 再頒布可能パッケージ](https://aka.ms/vs/17/release/vc_redist.x64.exe) (64ビット)
     * [再頒布可能パッケージの最新のサポートされているダウンロードをMicrosoft Visual C++する](https://learn.microsoft.com/ja-jp/cpp/windows/latest-supported-vc-redist?view=msvc-170) または <https://my.visualstudio.com/> からダウンロードする。
-1. .NET 7 SDK (64ビット)
-    * [.NET 7.0 のダウンロード](https://dotnet.microsoft.com/ja-jp/download/dotnet/7.0) からダウンロードする。
+1. .NET 8 SDK (64ビット)
+    * [.NET 8.0 のダウンロード](https://dotnet.microsoft.com/ja-jp/download/dotnet/8.0) からダウンロードする。
 1. .NET Framework 4.6 Runtime が必要になる可能性あり。
     * Edge.js.CSharp の動作を見る限り使用している可能性はあるが、 Windows 10、 Windows 11 には .NET Framework 4、 .NET Framework 4.8 がデフォルトでインストールされているため、要否を判断できない。エラーが発生する環境があれば .NET Framework 4.6 Runtime をチェックする。
 
