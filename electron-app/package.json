@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "set DEBUG_MODE=true && electron .",
-    "build-electron-edge-js": "node_modules\\electron-edge-js\\tools\\build.bat release 23.0.0",
+    "build-electron-edge-js": "node_modules\\electron-edge-js\\tools\\build.bat release 26.0.0",
     "build-portable": "electron-builder build --windows portable"
   },
   "author": "nakamurakko",
@@ -24,10 +24,10 @@
     ]
   },
   "dependencies": {
-    "electron-edge-js": "^23.0.0"
+    "electron-edge-js": "^26.0.0"
   },
   "devDependencies": {
-    "electron": "^23.3.13",
+    "electron": "^26.6.2",
     "electron-builder": "^24.9.1"
   }
 }
