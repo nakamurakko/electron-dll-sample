@@ -13,6 +13,9 @@
   "license": "MIT",
   "build": {
     "asar": "false",
+    "directories": {
+      "output": "executableFile"
+    },
     "files": [
       "!.vscode/*",
       "!Libraries/*",
