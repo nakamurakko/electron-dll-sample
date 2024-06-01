@@ -29,7 +29,7 @@
     "electron-edge-js": "^30.0.2"
   },
   "devDependencies": {
-    "electron": "^30.0.2",
+    "electron": "^30.0.9",
     "electron-builder": "^24.13.3"
   }
 }
