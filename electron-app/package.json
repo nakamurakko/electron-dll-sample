@@ -26,7 +26,7 @@
     ]
   },
   "dependencies": {
-    "electron-edge-js": "^33.0.5"
+    "electron-edge-js": "^34.0.0"
   },
   "devDependencies": {
     "electron": "^34.0.2",
