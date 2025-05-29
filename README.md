@@ -1,7 +1,7 @@
 # electron-dll-sample
 
 [Electron](https://www.electronjs.org/) のアプリから [electron-edge-js](https://github.com/agracio/electron-edge-js) を使用して、 C# の DLL を呼び出すサンプル。
-[Electron で C# の DLL を実行する](https://www.nakamurakko.com/entry/2023/02/01/120000) の確認当時のソースは <https://github.com/nakamurakko/electron-dll-sample/tree/blog-posted> を参照。
+[Electron で C# の DLL を実行する](https://nakamurakko.com/entry/2023/02/01/120000) の確認当時のソースは <https://github.com/nakamurakko/electron-dll-sample/tree/blog-posted> を参照。
 
 ## 確認済み開発環境
 
