@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net11.0</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -15,9 +15,9 @@
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.DotNet.InternalAbstractions" Version="1.0.0" />
     <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.6" />
-    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="10.0.14" />
-    <PackageReference Include="Microsoft.NETCore.DotNetHost" Version="8.0.33" />
-    <PackageReference Include="Microsoft.NETCore.DotNetHostPolicy" Version="8.0.33" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="11.0.0" />
+    <PackageReference Include="Microsoft.NETCore.DotNetHost" Version="8.0.34" />
+    <PackageReference Include="Microsoft.NETCore.DotNetHostPolicy" Version="8.0.34" />
     <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
     <PackageReference Include="System.Collections.Specialized" Version="4.3.0" />
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
